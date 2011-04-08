@@ -262,12 +262,12 @@ public class Cli {
 			System.out.println("Cannot read \"" + filename + "\" from FileInputStream");
 			return false;
 		}
-                schedule = new Schedule();
+                
 
 		try {
-                     
-                     Schedule s = (Schedule) objectInput.readObject();
-			schedule.setSchedule( s); // have to cast the object
+                        Schedule s = new Schedule();
+			s.setSchedule((Schedule) objectInput.readObject()); // have to cast the object
+                        schedule = s;
 			return true;
 		} catch (IOException e) {
 			System.out.println("Cannot read \"" + filename + "\" from ObjectInputStream");
