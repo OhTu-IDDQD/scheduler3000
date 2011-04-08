@@ -96,7 +96,7 @@ public class Cli {
 
 			day = Integer.parseInt(in);
 			// check if day is indeed a valid number
-			if (day > 0 && day < 7){
+			if (day > 0 && day <= 7){
 				return true; // day ok, exit!
 			}
 
