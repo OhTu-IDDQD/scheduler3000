@@ -1,0 +1,1 @@
+8.4. avatessa tiedostoa heitti nullpointerexceptionia - korjaus: lisätty riville 249: FileInputStream fos = null;
