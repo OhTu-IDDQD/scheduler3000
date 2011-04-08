@@ -448,8 +448,11 @@ public class Cli {
 	private static void printReportDialogToScreenDialog() {
 		Report report = printReportDialog();
 		if (report != null){
-			System.out.println(printReportDialog());
+			System.out.println(report);
 		}
+                else{
+                    System.out.println("Päivälle ei ollut tapahtumia");
+                }
 		
 	}
 
