@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="suti" name="tests.WeekdayTest" tests="3" time="0.042" timestamp="2011-04-11T05:40:10">
+<testsuite errors="0" failures="0" hostname="suti" name="tests.WeekdayTest" tests="3" time="0.045" timestamp="2011-04-11T17:47:18">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -289,12 +289,12 @@
     <property name="jar.index" value="false" />
     <property name="libs.CopyLibs.maven-pom" value="" />
     <property name="libs.absolutelayout.javadoc" value="" />
-    <property name="libs.hibernate-persistence.maven-pom" value="" />
     <property name="libs.spring-framework300.javadoc" value="" />
+    <property name="libs.hibernate-persistence.maven-pom" value="" />
     <property name="java.specification.name" value="Java Platform API Specification" />
     <property name="libs.swing-app-framework.maven-pom" value="" />
-    <property name="libs.jakarta_slide_ant_webdav.maven-pom" value="" />
     <property name="libs.NetBeans MIDP Components WMA.classpath" value="/home/ljalonen/Netbeans/mobility/modules/ext/netbeans_midp_components_wma.jar" />
+    <property name="libs.jakarta_slide_ant_webdav.maven-pom" value="" />
     <property name="do.archive+main.class.available" value="true" />
     <property name="libs.sjmc-ant-utils.src" value="" />
     <property name="java.specification.vendor" value="Sun Microsystems Inc." />
@@ -306,8 +306,8 @@
     <property name="libs.NetBeans MIDP Components WMA.javadoc" value="/home/ljalonen/Netbeans/mobility/modules/docs/netbeans_midp_components_wma-api.zip" />
     <property name="libs.MySQLDriver.javadoc" value="" />
     <property name="org.openide.version" value="deprecated" />
-    <property name="libs.ActiveSync.maven-pom" value="" />
     <property name="source.encoding" value="UTF-8" />
+    <property name="libs.ActiveSync.maven-pom" value="" />
     <property name="ap.cmd.line.internal" value="" />
     <property name="libs.eclipselinkmodelgen.maven-pom" value="" />
     <property name="libs.jsp-compilation-syscp.javadoc" value="" />
@@ -321,6 +321,7 @@
     <property name="libs.cdc-ant-utils.src" value="" />
     <property name="work.dir" value="/home/ljalonen/NetBeansProjects/scheduler3000" />
     <property name="libs.jaxb.classpath" value="/home/ljalonen/Netbeans/ide/modules/ext/jaxb/jaxb-impl.jar:/home/ljalonen/Netbeans/ide/modules/ext/jaxb/jaxb-xjc.jar:/home/ljalonen/Netbeans/ide/modules/ext/jaxb/jaxb1-impl.jar:/home/ljalonen/Netbeans/ide/modules/ext/jaxb/activation.jar:/home/ljalonen/Netbeans/ide/modules/ext/jaxb/api/jaxb-api.jar:/home/ljalonen/Netbeans/ide/modules/ext/jaxb/api/jsr173_api.jar" />
+    <property name="php.global.include.path" value="" />
     <property name="do.depend" value="false" />
     <property name="dist.javadoc.dir" value="dist/javadoc" />
     <property name="libs.spring-webmvc3.0.classpath" value="/home/ljalonen/Netbeans/java/modules/ext/spring-3.0/spring-webmvc-3.0.2.RELEASE.jar" />
@@ -328,12 +329,12 @@
     <property name="libs.restlib.src" value="" />
     <property name="javac.source" value="1.5" />
     <property name="build.generated.dir" value="build/generated" />
-    <property name="line.separator" value="&#xa;" />
     <property name="libs.hibernate-persistence.src" value="" />
-    <property name="java.specification.version" value="1.6" />
+    <property name="line.separator" value="&#xa;" />
     <property name="libs.nb_svg_midp_components.javadoc" value="/home/ljalonen/Netbeans/mobility/modules/docs/nb_svg_midp_components-api.zip" />
-    <property name="java.vm.info" value="mixed mode" />
+    <property name="java.specification.version" value="1.6" />
     <property name="libs.jaxws21.maven-pom" value="" />
+    <property name="java.vm.info" value="mixed mode" />
     <property name="libs.cdc-ant-utils.javadoc" value="" />
     <property name="junit.forkmode" value="perTest" />
     <property name="libs.ojec-ant-utils.classpath" value="/home/ljalonen/Netbeans/mobility/modules/ext/org-netbeans-modules-j2me-cdc-project-ojec.jar" />
@@ -358,11 +359,11 @@
     <property name="dist.dir" value="dist" />
     <property name="libs.groovy-all.javadoc" value="" />
     <property name="do.archive+manifest.available+main.class" value="true" />
-    <property name="javac.fork" value="false" />
     <property name="libs.groovy-all.classpath" value="/home/ljalonen/Netbeans/groovy/modules/ext/groovy-all.jar" />
+    <property name="javac.fork" value="false" />
     <property name="libs.sjmc-ant-utils.classpath" value="/home/ljalonen/Netbeans/mobility/modules/ext/org-netbeans-modules-j2me-cdc-project-sjmc.jar" />
-    <property name="libs.JMUnit4CLDC10.classpath" value="/home/ljalonen/Netbeans/mobility/modules/ext/jmunit4cldc10-1.2.1.jar" />
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob" />
+    <property name="libs.JMUnit4CLDC10.classpath" value="/home/ljalonen/Netbeans/mobility/modules/ext/jmunit4cldc10-1.2.1.jar" />
     <property name="default.javac.source" value="1.6" />
     <property name="debug-transport-by-os" value="dt_socket" />
     <property name="sun.jnu.encoding" value="UTF-8" />
@@ -380,18 +381,18 @@
     <property name="default.javac.target" value="1.6" />
     <property name="libs.junit_4.classpath" value="/home/ljalonen/Netbeans/platform/modules/ext/junit-4.8.2.jar" />
     <property name="user.timezone" value="" />
-    <property name="libs.ant-contrib.src" value="" />
     <property name="libs.javaee-endorsed-api-6.0.maven-pom" value="" />
+    <property name="libs.ant-contrib.src" value="" />
     <property name="netbeans.dirs" value="/home/ljalonen/Netbeans/nb:/home/ljalonen/Netbeans/ergonomics:/home/ljalonen/Netbeans/ide:/home/ljalonen/Netbeans/java:/home/ljalonen/Netbeans/bin/../xml:/home/ljalonen/Netbeans/apisupport:/home/ljalonen/Netbeans/bin/../webcommon:/home/ljalonen/Netbeans/websvccommon:/home/ljalonen/Netbeans/enterprise:/home/ljalonen/Netbeans/mobility:/home/ljalonen/Netbeans/profiler:/home/ljalonen/Netbeans/ruby:/home/ljalonen/Netbeans/bin/../python:/home/ljalonen/Netbeans/php:/home/ljalonen/Netbeans/bin/../visualweb:/home/ljalonen/Netbeans/bin/../soa:/home/ljalonen/Netbeans/bin/../identity:/home/ljalonen/Netbeans/bin/../uml:/home/ljalonen/Netbeans/harness:/home/ljalonen/Netbeans/cnd:/home/ljalonen/Netbeans/dlight:/home/ljalonen/Netbeans/groovy:/home/ljalonen/Netbeans/bin/../extra:/home/ljalonen/Netbeans/bin/../javafx:/home/ljalonen/Netbeans/bin/../javacard:" />
     <property name="libs.jsf20.javadoc" value="/home/ljalonen/Netbeans/enterprise/docs/javaee6-doc-api.zip" />
     <property name="java.ext.dirs" value="/usr/lib/jvm/java-6-openjdk/jre/lib/ext:/usr/java/packages/lib/ext" />
     <property name="libs.metro.src" value="" />
-    <property name="libs.savaje-ant-utils.maven-pom" value="" />
     <property name="libs.semc-ant-utils.src" value="" />
+    <property name="libs.savaje-ant-utils.maven-pom" value="" />
     <property name="libs.absolutelayout.classpath" value="/home/ljalonen/Netbeans/java/modules/ext/AbsoluteLayout.jar" />
     <property name="excludes" value="" />
-    <property name="libs.restlib.maven-pom" value="" />
     <property name="libs.metro.classpath" value="/home/ljalonen/Netbeans/ide/modules/ext/jaxb/activation.jar:/home/ljalonen/Netbeans/enterprise/modules/ext/metro/webservices-api.jar:/home/ljalonen/Netbeans/enterprise/modules/ext/metro/webservices-extra-api.jar:/home/ljalonen/Netbeans/enterprise/modules/ext/metro/webservices-extra.jar:/home/ljalonen/Netbeans/enterprise/modules/ext/metro/webservices-rt.jar:/home/ljalonen/Netbeans/enterprise/modules/ext/metro/webservices-tools.jar" />
+    <property name="libs.restlib.maven-pom" value="" />
     <property name="libs.DataBindingME.javadoc" value="/home/ljalonen/Netbeans/mobility/modules/docs/netbeans_databindingme-api.zip" />
     <property name="ant.file.type.scheduler3000-impl" value="file" />
     <property name="apple.laf.useScreenMenuBar" value="true" />
@@ -407,8 +408,8 @@
     <property name="sun.desktop" value="gnome" />
     <property name="libs.nb_svg_midp_components.maven-pom" value="" />
     <property name="libs.ricoh-ant-utils.javadoc" value="" />
-    <property name="libs.restlib.javadoc" value="/home/ljalonen/Netbeans/enterprise/docs/jersey-client-1.3-javadoc.zip:/home/ljalonen/Netbeans/enterprise/docs/jersey-core-1.1.5.1-javadoc.zip:/home/ljalonen/Netbeans/enterprise/docs/jersey-json-1.3-javadoc.zip:/home/ljalonen/Netbeans/enterprise/docs/jersey-multipart-1.3-javadoc.zip:/home/ljalonen/Netbeans/enterprise/docs/jersey-spring-1.3-javadoc.zip:/home/ljalonen/Netbeans/enterprise/docs/oauth-client-1.3-javadoc.zip:/home/ljalonen/Netbeans/enterprise/docs/oauth-signature-1.3-javadoc.zip" />
     <property name="libs.NetBeans MIDP Components PDA.maven-pom" value="" />
+    <property name="libs.restlib.javadoc" value="/home/ljalonen/Netbeans/enterprise/docs/jersey-client-1.3-javadoc.zip:/home/ljalonen/Netbeans/enterprise/docs/jersey-core-1.1.5.1-javadoc.zip:/home/ljalonen/Netbeans/enterprise/docs/jersey-json-1.3-javadoc.zip:/home/ljalonen/Netbeans/enterprise/docs/jersey-multipart-1.3-javadoc.zip:/home/ljalonen/Netbeans/enterprise/docs/jersey-spring-1.3-javadoc.zip:/home/ljalonen/Netbeans/enterprise/docs/oauth-client-1.3-javadoc.zip:/home/ljalonen/Netbeans/enterprise/docs/oauth-signature-1.3-javadoc.zip" />
     <property name="libs.eclipselink.classpath" value="/home/ljalonen/Netbeans/java/modules/ext/eclipselink/eclipselink-2.2.0.jar:/home/ljalonen/Netbeans/java/modules/ext/eclipselink/eclipselink-javax.persistence-2.0.jar" />
     <property name="libs.beans-binding.javadoc" value="/home/ljalonen/Netbeans/java/docs/beansbinding-1.2.1-doc.zip" />
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment" />
@@ -426,8 +427,8 @@
     <property name="libs.junit.src" value="" />
     <property name="annotation.processing.source.output" value="build/generated-sources/ap-source-output" />
     <property name="main.class" value="fi.helsinki.cs.scheduler3000.Cli" />
-    <property name="libs.CopyLibs.src" value="" />
     <property name="build.dir" value="build" />
+    <property name="libs.CopyLibs.src" value="" />
     <property name="libs.jsp-compilation.classpath" value="/home/ljalonen/Netbeans/java/ant/lib/ant.jar:/home/ljalonen/Netbeans/enterprise/modules/ext/servlet3.0-jsp2.2-api.jar:/home/ljalonen/Netbeans/enterprise/modules/ext/glassfish-jspparser-3.0.jar:/home/ljalonen/Netbeans/enterprise/modules/ext/jsf-2_0/jsf-api.jar:/home/ljalonen/Netbeans/enterprise/modules/ext/jstl.jar:/home/ljalonen/Netbeans/java/ant/lib/ant-launcher.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.8.2 compiled on December 20 2010" />
     <property name="file.encoding" value="UTF-8" />
@@ -438,8 +439,8 @@
     <property name="" value="======" />
   </properties>
   <testcase classname="tests.WeekdayTest" name="testIntToEnumMap" time="0.002" />
-  <testcase classname="tests.WeekdayTest" name="testEnumToIntMap" time="0.0" />
-  <testcase classname="tests.WeekdayTest" name="testLongNameMap" time="0.0" />
+  <testcase classname="tests.WeekdayTest" name="testEnumToIntMap" time="0.001" />
+  <testcase classname="tests.WeekdayTest" name="testLongNameMap" time="0.001" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

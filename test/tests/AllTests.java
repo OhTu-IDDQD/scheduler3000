@@ -15,7 +15,7 @@ public class AllTests {
 		TestSuite suite = new TestSuite("Test for default package");
 
 		suite.addTestSuite(EventTest.class); 
-		suite.addTestSuite(ReportFactoryTest.class);
+		suite.addTestSuite(ReportTest.class);
 		suite.addTestSuite(WeekdayTest.class);
 		suite.addTestSuite(ScheduleTest.class);
 		

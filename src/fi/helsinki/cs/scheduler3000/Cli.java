@@ -67,7 +67,14 @@ public class Cli {
 				}
 				printReportToFileDialog();
 				break;
-				
+                            
+                        case 'e': 
+				if (schedule == null){ // cannot do this if schedule is not existing
+					break;
+				}
+				printExportToCSVDialog();
+				break;
+                            
 			case 'n':
 				newScheduleDialog();
 				break;
@@ -343,6 +350,7 @@ public class Cli {
 			System.out.println("[S]ave schedule to file");
 			System.out.println("[P]rint a report on screen");
 			System.out.println("Print a report to [F]ile");
+                        System.out.println("[E]xport to CSV (office)");
 		}
 		System.out.println("[Q]uit");
 	}
@@ -388,7 +396,7 @@ public class Cli {
 		}
 
             Day day = Weekday.intToEnumMap.get(Integer.parseInt(in));
-            Report report = ReportFactory.makeReport(ReportFactory.ReportType.DAY, schedule, getOptions("day", day));
+            DayReport report = new DayReport(schedule, getOptions("day", day));
             return report;
         }
 
@@ -417,12 +425,12 @@ public class Cli {
                                }
                     }
 
-            return ReportFactory.makeReport(ReportFactory.ReportType.WEEK, schedule, getOptions("days", days));
+            return new WeekReport(schedule, getOptions("days", days));
         }
 
         //Creates and return a report of all the days in schedule
         private static Report fullReport(){
-           return ReportFactory.makeReport(ReportFactory.ReportType.FULL, schedule, null); // full report doesen't need options
+           return new FullReport(schedule, null); // full report doesen't need options
         }
 
 	private static Report printReportDialog() {
@@ -431,7 +439,7 @@ public class Cli {
 		while (true) {
                         System.out.println();
 			System.out.print("Which type of report do you want to print? Options are: ");
-			for (ReportFactory.ReportType type : ReportFactory.ReportType.values()){
+			for (Report.ReportType type : Report.ReportType.values()){
 				// make types the way every other option is shown to user
 				System.out.print("[" + type.toString().charAt(0) + "]" + type.toString().substring(1).toLowerCase()); 
 				System.out.print(" ");
@@ -488,6 +496,33 @@ public class Cli {
 			
 			System.out.print("Writing the file...");
 			out.print(report);
+			out.close();
+			System.out.println("ok!");
+		}
+	}
+        
+        private static void printExportToCSVDialog() {
+		Report report = printReportDialog();
+		if (report != null) {
+			PrintWriter out = null;
+			String filename = null;
+			
+			System.out.println("Give full file name and path (if applicable)");
+			
+			while (true){
+				printPrompt();
+				try {
+					filename = input.nextLine().trim();
+                                        filename += ".csv";
+					out = new PrintWriter(filename);
+					break; // break out of the loop
+				} catch (FileNotFoundException e) {
+					System.out.println("File " + filename + " was not found");
+				}
+			}
+			
+			System.out.print("Writing the file...");
+			out.print(report.toCSV());
 			out.close();
 			System.out.println("ok!");
 		}
