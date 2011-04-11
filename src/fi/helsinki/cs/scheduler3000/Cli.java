@@ -149,6 +149,8 @@ public class Cli {
 				return;
 			}
 
+//                        enterTimes(startTime, endTime);
+
 			System.out.println("What is the start time?");
 			printPrompt();
 			startTime = input.nextLine();
@@ -156,6 +158,10 @@ public class Cli {
 			System.out.println("What is the end time?");
 			printPrompt();
 			endTime = input.nextLine();
+
+                        if ( !(checkStartEnd(startTime, endTime)) ) {
+                            continue;
+                        }
 
 			System.out.println("What this event should be named as?");
 			System.out.println("(just press enter to skip this)");
@@ -199,6 +205,29 @@ public class Cli {
 		System.out.println("ok!");
 
 	}
+
+        // Checks for startTimes that are past the endTime
+        private static boolean checkStartEnd(String startTime, String endTime){
+                int alku = Integer.parseInt(startTime);
+                int loppu = Integer.parseInt(endTime);
+                if ( alku > loppu ) {
+                    System.out.println("Starting time cannot be after the end time, please enter the times again");
+                    return false;
+                }
+                return true;
+        }
+
+          //HUOM!HUOM! KOKEILU! Mahdollinen ratkaisu siihen, ettei päivän syöttöä tarvitse aloittaa alusta!
+//        private static void enterTimes(String startTime, String endTime){
+//                        System.out.println("What is the start time?");
+//			printPrompt();
+//			startTime = input.nextLine();
+//
+//			System.out.println("What is the end time?");
+//			printPrompt();
+//			endTime = input.nextLine();
+//        }
+
 
 	private static void newScheduleDialog() {
 		String in = null;
