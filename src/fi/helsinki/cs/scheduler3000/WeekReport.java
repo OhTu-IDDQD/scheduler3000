@@ -87,5 +87,9 @@ public class WeekReport extends Report {
 		}
 		return null;
 	}
+        
+        public String toCSV() {
+            return "testi";
+        }
 	
 }

@@ -5,3 +5,8 @@
 11.4. alkamis- ja loppumisaikojen tarkistus lisätty metodin checkStartEnd()-metodin muodossa -riku
 11.4. lisätty enterTimes()-metodi, jolla ehkä voi ratkaista jatkuvan alusta aloittamisen jos ajat eivät natsaa -riku
 11.4. open() korjattu (toivottavasti viimeisen kerran) -riku
+11.4. toString Report luokasta FullReport luokkaan -Lauri
+11.4. Report luokka abstraktiksi, abstraktit metodit toString ja toCSV -Lauri
+11.4. FullReport, DayReport ja WeekReport luokkiin toCSV dummyt(ei toiminnallisuutta tässä vaiheessa) -Lauri
+11.4. ReportFactory luokan poistaminen -Lauri
+11.4. ReportFactory testit refaktorointi Reportin testeiksi -Lauri
