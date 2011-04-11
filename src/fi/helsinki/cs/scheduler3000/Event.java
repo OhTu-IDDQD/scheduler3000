@@ -4,8 +4,9 @@ package fi.helsinki.cs.scheduler3000;
  * @author Team TA's
  */
 
-
-public class Event {
+import java.io.Serializable;
+        
+public class Event implements Serializable {
 
 	// FIXME
 	public static final String[] VALID_START_TIMES = {"08", "10", "12", "14", "16", "18" };

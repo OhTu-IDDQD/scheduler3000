@@ -503,29 +503,34 @@ public class Cli {
 		}
 	
 	}
+        
+        private static void saveScheduleDialog() {
+            System.out.println("Give name of the file to open");
+            System.out.println("Notice that file will be saved with .dat-extension, eg. \"myfile\" will be \"myfile.dat\" ");
+            printPrompt();
+            String filename = input.nextLine().trim();
+            if(filename.equals(endCommand)) {
+                return;
+            }
+            filename = filename  + ".dat";
+            while (true){
+                if (save(filename)){
+                    break;
+                }
+                else {
+                    System.out.println("Please enter the name of the file again");
+                    System.out.println("You can exit with " + endCommand);
+                    filename = input.nextLine().trim();
 
-	private static void saveScheduleDialog() {
-		System.out.println("Give name of the file to open");
-		System.out.println("Notice that file will be saved with .dat-extension, eg. \"myfile\" will be \"myfile.dat\" ");
-		printPrompt();
-		String filename = input.nextLine().trim() + ".dat";
-		while (true){
-			if (save(filename)){
-				break;
-			}
-			else {
-				System.out.println("Please enter the name of the file again");
-				System.out.println("You can exit with " + endCommand);
-				filename = input.nextLine().trim() + ".dat";
-				
-				if (filename.trim().toLowerCase().equals(endCommand)) {
-					return;
-				}
-				
+                    if (filename.trim().toLowerCase().equals(endCommand)) {
+                        return;
+                    }
 
-			}
-		}
-		System.out.println("Schedule saved as \"" + filename + "\"");
-	}	
+                    filename = filename  + ".dat";
+
+                }
+            }
+            System.out.println("Schedule saved as \"" + filename + "\"");
+        }
 
 }
