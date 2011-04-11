@@ -8,7 +8,6 @@ package fi.helsinki.cs.scheduler3000;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 import fi.helsinki.cs.scheduler3000.Weekday.Day;
 
@@ -54,7 +53,6 @@ public class Schedule implements Serializable {
     }
     
     public void setSchedule(Schedule newSchedule) {
-                System.out.println("huuuuu");
 		this.schedule = newSchedule.getSchedule();
 		this.period = newSchedule.getPeriod();
 	}

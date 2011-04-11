@@ -18,21 +18,21 @@ public class WeekReport extends Report {
 	}
 
 	@Override
-	public String toString() {
+/*	public String toString() {
 		
 		if (this.options.containsKey("days")){
 			ArrayList<Weekday.Day> days = (ArrayList<Day>)this.options.get("days");			
-			String[][] res = new String[days.size() + 1][7]; // +1 for header row
+			String[][] result = new String[days.size() + 1][7]; // +1 for header row
 
-			res[0][0] = "\t";
+			result[0][0] = "\t";
 			
 			for (int i = 1, j = 0; j < Event.VALID_START_TIMES.length; i++, j++){
-				res[0][i] = Event.VALID_START_TIMES[j] + "\t";
+				result[0][i] = Event.VALID_START_TIMES[j] + "\t";
 			}	
 
 			int i = 1;
 			for (Day day : days){
-				res[i][0] = day.toString() + "\t";
+				result[i][0] = day.toString() + "\t";
 				i++;
 			}
 			
@@ -45,7 +45,7 @@ public class WeekReport extends Report {
 				}
 				else if (events.size() == 0){
 					for (int x = 1; x < 7; x++) {
-						res[i][x] = "\t";
+						result[i][x] = "\t";
 					}
 				}
 				
@@ -56,17 +56,17 @@ public class WeekReport extends Report {
 					  entry = event.getLocation()+"\t";
 					}
 					
-					if (event.getStartTime().equals("08"))     { res[i][1] = entry; } 
-					else if(event.getStartTime().equals("10")) { res[i][2] = entry; } 
-					else if(event.getStartTime().equals("12")) { res[i][3] = entry;	} 
-					else if(event.getStartTime().equals("14")) { res[i][4] = entry; } 
-					else if(event.getStartTime().equals("16")) { res[i][5] = entry; } 
-					else if(event.getStartTime().equals("18")) { res[i][6] = entry; }
+					if (event.getStartTime().equals("08"))     { result[i][1] = entry; }
+					else if(event.getStartTime().equals("10")) { result[i][2] = entry; }
+					else if(event.getStartTime().equals("12")) { result[i][3] = entry;	}
+					else if(event.getStartTime().equals("14")) { result[i][4] = entry; }
+					else if(event.getStartTime().equals("16")) { result[i][5] = entry; }
+					else if(event.getStartTime().equals("18")) { result[i][6] = entry; }
 				
 					// fill up with empties
 					for (int x = 1; x < 7; x++) {
-						if (res[i][x] == null){
-							res[i][x] = "\t";
+						if (result[i][x] == null){
+							result[i][x] = "\t";
 						}
 					}
 					
@@ -76,9 +76,9 @@ public class WeekReport extends Report {
 						
 			String response = "";
 			
-			for (int j = 0; j < res.length; j++){
-				for (int k = 0; k < res[0].length; k++){
-					response += res[j][k];
+			for (int j = 0; j < result.length; j++){
+				for (int k = 0; k < result[0].length; k++){
+					response += result[j][k];
 				}
 				response += "\n";
 			}
@@ -87,5 +87,79 @@ public class WeekReport extends Report {
 		}
 		return null;
 	}
-	
+*/
+
+	public String toString() {
+
+		if (this.options.containsKey("days")){
+			ArrayList<Weekday.Day> days = (ArrayList<Day>)this.options.get("days");
+			String[][] result = new String[Event.VALID_START_TIMES.length +1][days.size() + 1]; // +1 for header row
+
+			result[0][0] = "\t";
+
+			for (int i = 1, j = 0; j < Event.VALID_START_TIMES.length; i++, j++){
+				result[i][0] = Event.VALID_START_TIMES[j] + "\t";
+			}
+
+			int i = 1;
+			for (Day day : days){
+				result[0][i] = day.toString() + "\t";
+				i++;
+			}
+
+			i = 1;
+			for (Day day : days){
+				ArrayList<Event> events = this.schedule.getSchedule().get(day);
+
+				if (events == null){
+                                        System.out.println("hmm");
+					return null;
+				}
+				else if (events.isEmpty()){
+                                        System.out.println("jaajaa");
+					for (int x = 1; x < 7; x++) {
+						result[x][i] = "\t";
+					}
+				}
+
+				for (Event event : events){
+					String entry = "\t"; // if event is null
+
+					if (event.getLocation() != null) {
+					  entry = event.getLocation()+"\t";
+					}
+
+					if (event.getStartTime().equals("08"))     { result[i][1] = entry; }
+					else if(event.getStartTime().equals("10")) { result[i][2] = entry; }
+					else if(event.getStartTime().equals("12")) { result[i][3] = entry;	}
+					else if(event.getStartTime().equals("14")) { result[i][4] = entry; }
+					else if(event.getStartTime().equals("16")) { result[i][5] = entry; }
+					else if(event.getStartTime().equals("18")) { result[i][6] = entry; }
+
+					// fill up with empties
+					for (int x = 1; x < 7; x++) {
+						if (result[x][i] == null){
+							result[x][i] = "\t";
+						}
+					}
+
+				}
+				i++;
+			}
+
+			String response = "";
+
+			for (int j = 0; j < result.length; j++){
+				for (int k = 0; k < result[0].length; k++){
+					response += result[j][k];
+				}
+				response += "\n";
+			}
+
+			return response;
+		}
+		return null;
+        }
+
+
 }
