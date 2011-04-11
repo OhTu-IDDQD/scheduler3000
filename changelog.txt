@@ -4,3 +4,4 @@
 11.4. printReportDialog() metodista extractattu dayReport(), weekReport() ja fullReport() -riku
 11.4. alkamis- ja loppumisaikojen tarkistus lisätty metodin checkStartEnd()-metodin muodossa -riku
 11.4. lisätty enterTimes()-metodi, jolla ehkä voi ratkaista jatkuvan alusta aloittamisen jos ajat eivät natsaa -riku
+11.4. open() korjattu (toivottavasti viimeisen kerran) -riku
