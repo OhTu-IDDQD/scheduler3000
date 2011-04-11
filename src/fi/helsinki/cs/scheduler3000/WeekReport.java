@@ -93,7 +93,7 @@ public class WeekReport extends Report {
 
 		if (this.options.containsKey("days")){
 			ArrayList<Weekday.Day> days = (ArrayList<Day>)this.options.get("days");
-			String[][] result = new String[Event.VALID_START_TIMES.length +1][days.size() + 1]; // +1 for header row
+			String[][] result = new String[Event.VALID_START_TIMES.length+1][days.size()+1]; // +1 for header row
 
 			result[0][0] = "\t";
 
@@ -101,48 +101,58 @@ public class WeekReport extends Report {
 				result[i][0] = Event.VALID_START_TIMES[j] + "\t";
 			}
 
-			int i = 1;
+/*			int i = 1;
 			for (Day day : days){
 				result[0][i] = day.toString() + "\t";
 				i++;
 			}
-
-			i = 1;
+*/
+			int i = 1;
 			for (Day day : days){
+                                result[0][i] = day.toString() + "\t";
+//				i++;
 				ArrayList<Event> events = this.schedule.getSchedule().get(day);
 
 				if (events == null){
                                         System.out.println("hmm");
 					return null;
 				}
-				else if (events.isEmpty()){
+/*				else if (events.isEmpty()){
                                         System.out.println("jaajaa");
 					for (int x = 1; x < 7; x++) {
 						result[x][i] = "\t";
 					}
 				}
-
+*/
 				for (Event event : events){
+                                        System.out.println("testi");
 					String entry = "\t"; // if event is null
 
 					if (event.getLocation() != null) {
 					  entry = event.getLocation()+"\t";
 					}
+                                        int timeCount = 0;
+                                        for (String startTime : Event.VALID_START_TIMES) {
+                                            timeCount++;
+                                            if (event.getStartTime().equals(startTime)) {
+                                                result[timeCount][i] = entry;
+                                            }
+                                        }
 
-					if (event.getStartTime().equals("08"))     { result[i][1] = entry; }
-					else if(event.getStartTime().equals("10")) { result[i][2] = entry; }
-					else if(event.getStartTime().equals("12")) { result[i][3] = entry;	}
-					else if(event.getStartTime().equals("14")) { result[i][4] = entry; }
-					else if(event.getStartTime().equals("16")) { result[i][5] = entry; }
-					else if(event.getStartTime().equals("18")) { result[i][6] = entry; }
+/*					if (event.getStartTime().equals("08"))     { result[1][i] = entry; }
+					else if(event.getStartTime().equals("10")) { result[2][i] = entry; }
+					else if(event.getStartTime().equals("12")) { result[3][i] = entry; }
+					else if(event.getStartTime().equals("14")) { result[4][i] = entry; }
+					else if(event.getStartTime().equals("16")) { result[5][i] = entry; }
+					else if(event.getStartTime().equals("18")) { result[6][i] = entry; }
 
 					// fill up with empties
-					for (int x = 1; x < 7; x++) {
-						if (result[x][i] == null){
-							result[x][i] = "\t";
+					for (int x = 1; x < days.size(); x++) {
+						if (result[i][x] == null){
+							result[i][x] = "\t";
 						}
 					}
-
+*/
 				}
 				i++;
 			}
