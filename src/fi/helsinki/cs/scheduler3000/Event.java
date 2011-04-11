@@ -17,8 +17,8 @@ public class Event implements Serializable {
 	private String title;
 	
 	public Event(String startTime, String endTime){
-		this.setStartTime(startTime);
-		this.setEndTime(endTime);
+               this.setStartTime(startTime);
+               this.setEndTime(endTime);     
 	}
 	
 	public Event(String startTime, String endTime, String title){

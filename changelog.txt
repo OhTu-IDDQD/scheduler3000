@@ -1,3 +1,6 @@
 8.4. avatessa tiedostoa heitti nullpointerexceptionia - korjattu (korjaus rikkoi luvun toisella tavalla)
 8.4. korjattu sunnuntain tunnistaminen '7'
 8.4. korjattu tiedoston luku
+11.4. printReportDialog() metodista extractattu dayReport(), weekReport() ja fullReport() -riku
+11.4. alkamis- ja loppumisaikojen tarkistus lisätty metodin checkStartEnd()-metodin muodossa -riku
+11.4. lisätty enterTimes()-metodi, jolla ehkä voi ratkaista jatkuvan alusta aloittamisen jos ajat eivät natsaa -riku
