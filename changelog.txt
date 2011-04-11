@@ -1,2 +1,3 @@
-8.4. avatessa tiedostoa heitti nullpointerexceptionia - korjaus: lisätty riville 249: FileInputStream fos = null;
+8.4. avatessa tiedostoa heitti nullpointerexceptionia - korjattu (korjaus rikkoi luvun toisella tavalla)
 8.4. korjattu sunnuntain tunnistaminen '7'
+8.4. korjattu tiedoston luku

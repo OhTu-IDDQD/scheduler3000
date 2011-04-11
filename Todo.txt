@@ -1,0 +1,13 @@
+Periodiin pit‰‰ jostain syyst‰ valita p‰iv‰t, joka on t‰ysin turha operaatio. Myˆs print -> week pyyt‰‰ p‰ivi‰, mutta se voi ehk‰ olla perusteltua (pieni n‰yttˆ).
+
+Print -> Full tulostaa p‰iv‰t tyhm‰ss‰ j‰rjestyksess‰
+
+Periodiksi k‰y mik‰ tahansa luku ja sill‰ ei tehd‰ mit‰‰n.
+
+Uuden tapahtuman alku- ja loppuajat on m‰‰ritelty liian tarkasti (08, 10,...,20)
+
+Uuden tapahtuman loppuaika voi olla ennen alkuaikaa.
+
+Uudelle tapahtumalle ei ole pakko asettaa otsikkoa, eik‰ paikkaa jolloin ohjelma tulostaa no location tai no title specified.
+
+Lis‰ksi tuossa on merkint‰ "Dayreport/report turha?"

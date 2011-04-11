@@ -262,12 +262,12 @@ public class Cli {
 			System.out.println("Cannot read \"" + filename + "\" from FileInputStream");
 			return false;
 		}
-                schedule = new Schedule();
+                
 
 		try {
-                     
-                     Schedule s = (Schedule) objectInput.readObject();
-			schedule.setSchedule( s); // have to cast the object
+                        Schedule s = new Schedule();
+			s.setSchedule((Schedule) objectInput.readObject()); // have to cast the object
+                        schedule = s;
 			return true;
 		} catch (IOException e) {
 			System.out.println("Cannot read \"" + filename + "\" from ObjectInputStream");
@@ -448,8 +448,11 @@ public class Cli {
 	private static void printReportDialogToScreenDialog() {
 		Report report = printReportDialog();
 		if (report != null){
-			System.out.println(printReportDialog());
+			System.out.println(report);
 		}
+                else{
+                    System.out.println("Päivälle ei ollut tapahtumia");
+                }
 		
 	}
 
@@ -500,29 +503,34 @@ public class Cli {
 		}
 	
 	}
+        
+        private static void saveScheduleDialog() {
+            System.out.println("Give name of the file to open");
+            System.out.println("Notice that file will be saved with .dat-extension, eg. \"myfile\" will be \"myfile.dat\" ");
+            printPrompt();
+            String filename = input.nextLine().trim();
+            if(filename.equals(endCommand)) {
+                return;
+            }
+            filename = filename  + ".dat";
+            while (true){
+                if (save(filename)){
+                    break;
+                }
+                else {
+                    System.out.println("Please enter the name of the file again");
+                    System.out.println("You can exit with " + endCommand);
+                    filename = input.nextLine().trim();
 
-	private static void saveScheduleDialog() {
-		System.out.println("Give name of the file to open");
-		System.out.println("Notice that file will be saved with .dat-extension, eg. \"myfile\" will be \"myfile.dat\" ");
-		printPrompt();
-		String filename = input.nextLine().trim() + ".dat";
-		while (true){
-			if (save(filename)){
-				break;
-			}
-			else {
-				System.out.println("Please enter the name of the file again");
-				System.out.println("You can exit with " + endCommand);
-				filename = input.nextLine().trim() + ".dat";
-				
-				if (filename.trim().toLowerCase().equals(endCommand)) {
-					return;
-				}
-				
+                    if (filename.trim().toLowerCase().equals(endCommand)) {
+                        return;
+                    }
 
-			}
-		}
-		System.out.println("Schedule saved as \"" + filename + "\"");
-	}	
+                    filename = filename  + ".dat";
+
+                }
+            }
+            System.out.println("Schedule saved as \"" + filename + "\"");
+        }
 
 }
