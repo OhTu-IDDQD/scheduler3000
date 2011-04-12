@@ -322,16 +322,11 @@ is divided into following sections:
                 </pathconvert>
                 <tempfile deleteonexit="true" property="javac.includesfile.binary"/>
                 <echo file="${javac.includesfile.binary}" message="${javac.includes.binary}"/>
-<<<<<<< HEAD
-                <delete>
-                    <files includesfile="${javac.includesfile.binary}"/>
-=======
                 <delete>
                     <files includesfile="${javac.includesfile.binary}"/>
                 </delete>
                 <delete>
                     <fileset file="${javac.includesfile.binary}"/>
->>>>>>> 8269dcbc28146a594e07121d9660945ed542091e
                 </delete>
                 <delete file="${javac.includesfile.binary}"/>
             </sequential>
