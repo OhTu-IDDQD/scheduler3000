@@ -215,6 +215,10 @@ public class Cli {
 
         // Checks for startTimes that are past the endTime
         private static boolean checkStartEnd(String startTime, String endTime){
+                if ( startTime.equals("") || endTime.equals("") ) {
+                    System.out.println("You didn't enter either start time or end time, please try again");
+                    return false;
+                }
                 int alku = Integer.parseInt(startTime);
                 int loppu = Integer.parseInt(endTime);
                 if ( alku > loppu ) {
