@@ -10,3 +10,4 @@
 11.4. FullReport, DayReport ja WeekReport luokkiin toCSV dummyt(ei toiminnallisuutta tässä vaiheessa) -Lauri
 11.4. ReportFactory luokan poistaminen -Lauri
 11.4. ReportFactory testit refaktorointi Reportin testeiksi -Lauri
+12.4. checkStartEnd()-metodiin lisätty tarkistus null aikoja varten -riku
