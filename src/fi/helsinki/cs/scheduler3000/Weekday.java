@@ -11,9 +11,9 @@ import java.util.HashMap;
 public class Weekday {
 
 	public static enum Day { MON, TUE, WED, THU, FRI, SAT, SUN };	
-	public static HashMap<Integer, Day> intToEnumMap = new HashMap<Integer, Day>();
-	public static HashMap<Day, Integer> enumToIntMap = new HashMap<Day, Integer>();
-	public static HashMap<Day, String> longNameMap = new HashMap<Day, String>();
+	public static final HashMap<Integer, Day> intToEnumMap = new HashMap<Integer, Day>();
+	public static final HashMap<Day, Integer> enumToIntMap = new HashMap<Day, Integer>();
+	public static final HashMap<Day, String> longNameMap = new HashMap<Day, String>();
 	
 	// make handy hashmaps  
 	static {

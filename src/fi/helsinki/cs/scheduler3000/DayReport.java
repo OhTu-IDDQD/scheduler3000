@@ -20,7 +20,7 @@ public class DayReport extends Report {
 	@Override
 	public String toString() {
 		if (this.options.containsKey("day")){
-			String res = "";
+			String result = "";
 			Weekday.Day weekday = (Day)this.options.get("day");
 			ArrayList<Event> events = this.schedule.getSchedule().get(weekday);
 			
@@ -28,28 +28,28 @@ public class DayReport extends Report {
 				return null;
 			}
 			
-			res += Weekday.longNameMap.get(weekday) + ":\n------\n";
+			result += Weekday.longNameMap.get(weekday) + ":\n------\n";
 			
 			for (Event e : events){
 				if(e.getTitle().equals("")){
-					res += "<no title for this event>";
+					result += "<no title for this event>";
 				}
 				else{
-					res += e.getTitle();	
+					result += e.getTitle();
 				}
 				
 				//event must always have start time and end time
-				res += "\nat " + e.getStartTime() + " to " + e.getEndTime(); 
+				result += "\nat " + e.getStartTime() + " to " + e.getEndTime();
 				
 				if (e.getLocation().equals("")){
-					res += "\n<no location specified>";
+					result += "\n<no location specified>";
 				}
 				else {
-					res += "\nin " + e.getLocation();
+					result += "\nin " + e.getLocation();
 				}
-				res += "\n\n";
+				result += "\n\n";
 			}
-			return res;
+			return result;
 		}
 
 		return null;

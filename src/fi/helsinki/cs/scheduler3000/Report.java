@@ -22,5 +22,5 @@ abstract class Report {
         
         abstract public String toCSV();
 	abstract public String toString();
-        
+
 }

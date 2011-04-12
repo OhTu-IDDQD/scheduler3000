@@ -13,83 +13,83 @@ import fi.helsinki.cs.scheduler3000.Weekday.Day;
 
 public class WeekReport extends Report {
 
+        private final int MAX_TITLE_LENGTH = 10;
+
 	public WeekReport(Schedule schedule, HashMap<String, Object> options) {
 		super(schedule, options);
 	}
 
 	@Override
 	public String toString() {
-		
+
 		if (this.options.containsKey("days")){
-			ArrayList<Weekday.Day> days = (ArrayList<Day>)this.options.get("days");			
-			String[][] res = new String[days.size() + 1][7]; // +1 for header row
-
-			res[0][0] = "\t";
-			
+			ArrayList<Weekday.Day> days =
+                                (ArrayList<Day>)this.options.get("days");
+			String[][] reportArray = new String[
+                                Event.VALID_START_TIMES.length+1][days.size()+1]; // +1 for header row
+                        // Nothing in the top left corner
+			reportArray[0][0] = "";
+                        // Add the start times
 			for (int i = 1, j = 0; j < Event.VALID_START_TIMES.length; i++, j++){
-				res[0][i] = Event.VALID_START_TIMES[j] + "\t";
-			}	
-
-			int i = 1;
-			for (Day day : days){
-				res[i][0] = day.toString() + "\t";
-				i++;
+				reportArray[i][0] = Event.VALID_START_TIMES[j];
 			}
-			
-			i = 1;
-			for (Day d : days){		
-				ArrayList<Event> events = this.schedule.getSchedule().get(d); 
-				
+
+			int dayIndex;
+			for (Day day : days){
+                                dayIndex = Weekday.enumToIntMap.get(day);
+                                reportArray[0][dayIndex] = day.toString();
+				ArrayList<Event> events = this.schedule.getSchedule().get(day);
+
 				if (events == null){
 					return null;
 				}
-				else if (events.size() == 0){
-					for (int x = 1; x < 7; x++) {
-						res[i][x] = "\t";
-					}
-				}
-				
+
 				for (Event event : events){
-					String entry = "\t"; // if event is null
-						
-					if (event.getLocation() != null) { 
-					  entry = event.getLocation()+"\t";
+					String entry = null;
+
+					if (event.getTitle() != null) {
+                                            entry = event.getTitle();
 					}
-					
-					if (event.getStartTime().equals("08"))     { res[i][1] = entry; } 
-					else if(event.getStartTime().equals("10")) { res[i][2] = entry; } 
-					else if(event.getStartTime().equals("12")) { res[i][3] = entry;	} 
-					else if(event.getStartTime().equals("14")) { res[i][4] = entry; } 
-					else if(event.getStartTime().equals("16")) { res[i][5] = entry; } 
-					else if(event.getStartTime().equals("18")) { res[i][6] = entry; }
-				
-					// fill up with empties
-					for (int x = 1; x < 7; x++) {
-						if (res[i][x] == null){
-							res[i][x] = "\t";
-						}
-					}
-					
+                                        int timeIndex = 0;
+                                        // Find out when the event starts
+                                        for (String startTime : Event.VALID_START_TIMES) {
+                                            timeIndex++;
+                                            if (event.getStartTime().equals(startTime)) {
+                                                reportArray[timeIndex][dayIndex] = entry;
+                                            }
+                                        }
 				}
-				i++;
+				dayIndex++;
 			}
-						
-			String response = "";
-			
-			for (int j = 0; j < res.length; j++){
-				for (int k = 0; k < res[0].length; k++){
-					response += res[j][k];
+
+			String weekReport = "";
+                        // Go through the array and append it to a string
+			for (int i = 0; i < reportArray.length; i++){
+				for (int j = 0; j < reportArray[0].length; j++){
+                                        if (reportArray[i][j] != null) {
+                                            // Cut the title if it's too long
+                                            if (reportArray[i][j].length() > MAX_TITLE_LENGTH)
+                                                weekReport += reportArray[i][j].substring(0,MAX_TITLE_LENGTH);
+                                            else {
+                                                // Pad the title string
+                                                weekReport += String.format("%1$-"
+                                                        + (MAX_TITLE_LENGTH) + "s", reportArray[i][j]);
+                                            }
+                                        }
+                                        // Fill space with whitespace if there is no event
+                                        else
+                                            weekReport += String.format("%1$-" + MAX_TITLE_LENGTH + "s", "");
 				}
-				response += "\n";
+				weekReport += "\n";
 			}
-			
-			return response;
+
+			return weekReport;
 		}
 		return null;
-	}
+        }
         
         public String toCSV() {
             return "testi";
         }
-	
+
 }

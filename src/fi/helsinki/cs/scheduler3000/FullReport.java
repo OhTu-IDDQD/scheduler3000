@@ -13,25 +13,25 @@ public class FullReport extends Report {
 		super(schedule, options);
 	}
 
-        public String toString(){
-            String res = "";
-		
-            for (Weekday.Day day : schedule.getSchedule().keySet()){
-		res += day + ":\n";
-		res += "----\n";
-		for (Event event : schedule.getSchedule().get(day)){
-			res += event.getTitle();
-			res += "\nat " + event.getStartTime() + "-" + event.getEndTime();
-			res += "\nin " + event.getLocation();
+        @Override
+	public String toString(){
+		String result = "";
+
+		for (Weekday.Day day : schedule.getSchedule().keySet()){
+			result += day + ":\n";
+			result += "----\n";
+			for (Event event : schedule.getSchedule().get(day)){
+				result += event.getTitle();
+				result += "\nat " + event.getStartTime() + "-" + event.getEndTime();
+				result += "\nin " + event.getLocation();
+			}
+			result += "\n\n";
 		}
-		res += "\n\n";
-            }
-		
-            return res;
+
+		return result;
 	}
         
         public String toCSV() {
             return "testi";
         }
-        
 }

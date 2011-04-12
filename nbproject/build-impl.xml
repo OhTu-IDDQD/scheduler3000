@@ -328,6 +328,7 @@ is divided into following sections:
                 <delete>
                     <fileset file="${javac.includesfile.binary}"/>
                 </delete>
+                <delete file="${javac.includesfile.binary}"/>
             </sequential>
         </macrodef>
     </target>
