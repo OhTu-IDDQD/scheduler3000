@@ -34,9 +34,8 @@ public class WeekReport extends Report {
 				reportArray[i][0] = Event.VALID_START_TIMES[j];
 			}
 
-			int dayIndex;
+			int dayIndex = 1;
 			for (Day day : days){
-                                dayIndex = Weekday.enumToIntMap.get(day);
                                 reportArray[0][dayIndex] = day.toString();
 				ArrayList<Event> events = this.schedule.getSchedule().get(day);
 
