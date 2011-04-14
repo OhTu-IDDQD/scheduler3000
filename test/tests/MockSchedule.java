@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import fi.helsinki.cs.scheduler3000.*;
-import fi.helsinki.cs.scheduler3000.Weekday.Day;
+import fi.helsinki.cs.KaiSei.*;
+import fi.helsinki.cs.KaiSei.Weekday.Day;
 
 public class MockSchedule extends Schedule {
 

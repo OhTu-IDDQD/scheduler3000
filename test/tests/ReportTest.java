@@ -7,7 +7,7 @@ package tests;
 
 import org.junit.* ;
 
-import fi.helsinki.cs.scheduler3000.*;
+import fi.helsinki.cs.KaiSei.*;
 import junit.framework.TestCase;
 import java.util.ArrayList;
 import java.util.HashMap;
