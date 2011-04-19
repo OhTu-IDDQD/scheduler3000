@@ -500,7 +500,8 @@ public class Cli {
 
         //Creates and returns day report from schedule
         private static Report dayReport(){
-            
+            return null;
+/*
             System.out.println("Which day you want to see your schedule for?");
             printDates();
             printPrompt();
@@ -513,7 +514,7 @@ public class Cli {
             Day day = Weekday.intToEnumMap.get(Integer.parseInt(in));
             DayReport report = new DayReport(schedule, getOptions("day", day));
             return report;
-        }
+  */      }
 
 
         //Creates and returns weekly report from schedule
@@ -545,7 +546,8 @@ public class Cli {
 
         //Creates and return a report of all the days in schedule
         private static Report fullReport(){
-           return new FullReport(schedule, null); // full report doesen't need options
+            return null;
+//           return new FullReport(schedule, null); // full report doesen't need options
         }
 
 	private static Report printReportDialog() {
