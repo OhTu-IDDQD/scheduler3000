@@ -22,13 +22,19 @@ public class WeekReport extends Report {
 	@Override
 	public String toString() {
 
+            String weekReport = "";
+            int weekNo = 0;
+
+            for (HashMap<Day, ArrayList<Event>> week : this.schedule.getSchedule()) {
+                weekNo++;
+
 		if (this.options.containsKey("days")){
 			ArrayList<Weekday.Day> days =
                                 (ArrayList<Day>)this.options.get("days");
 			String[][] reportArray = new String[
                                 Event.VALID_START_TIMES.length+1][days.size()+1]; // +1 for header row
                         // Nothing in the top left corner
-			reportArray[0][0] = "";
+			reportArray[0][0] = "Week " + weekNo;
                         // Add the start times
 			for (int i = 1, j = 0; j < Event.VALID_START_TIMES.length; i++, j++){
 				reportArray[i][0] = Event.VALID_START_TIMES[j];
@@ -37,7 +43,7 @@ public class WeekReport extends Report {
 			int dayIndex = 1;
 			for (Day day : days){
                                 reportArray[0][dayIndex] = day.toString();
-				ArrayList<Event> events = this.schedule.getSchedule().get(day);
+				ArrayList<Event> events = week.get(day); //this.schedule.getSchedule().get(day);
 
 				if (events == null){
 					return null;
@@ -61,7 +67,7 @@ public class WeekReport extends Report {
 				dayIndex++;
 			}
 
-			String weekReport = "";
+			//String weekReport = "";
                         // Go through the array and append it to a string
 			for (int i = 0; i < reportArray.length; i++){
 				for (int j = 0; j < reportArray[0].length; j++){
@@ -82,12 +88,22 @@ public class WeekReport extends Report {
 				weekReport += "\n";
 			}
 
-			return weekReport;
+			
 		}
-		return null;
+                
+		
         }
+        return weekReport;
+        //return null;
+    }
         
         public String toCSV() {
+            
+            int weekNo = 0;
+            String weekReport = "";
+
+            for (HashMap<Day, ArrayList<Event>> week : this.schedule.getSchedule()) {
+                weekNo++;
 
 		if (this.options.containsKey("days")){
 			ArrayList<Weekday.Day> days =
@@ -95,7 +111,7 @@ public class WeekReport extends Report {
 			String[][] reportArray = new String[
                                 Event.VALID_START_TIMES.length+1][days.size()+1]; // +1 for header row
                         // Nothing in the top left corner
-			reportArray[0][0] = "";
+			reportArray[0][0] = "Week " + weekNo;
                         // Add the start times
 			for (int i = 1, j = 0; j < Event.VALID_START_TIMES.length; i++, j++){
 				reportArray[i][0] = Event.VALID_START_TIMES[j];
@@ -104,7 +120,7 @@ public class WeekReport extends Report {
 			int dayIndex = 1;
 			for (Day day : days){
                                 reportArray[0][dayIndex] = day.toString();
-				ArrayList<Event> events = this.schedule.getSchedule().get(day);
+				ArrayList<Event> events = week.get(day);
 
 				if (events == null){
 					return null;
@@ -128,7 +144,7 @@ public class WeekReport extends Report {
 				dayIndex++;
 			}
 
-			String weekReport = "";
+			
                         // Go through the array and append it to a string
 			for (int i = 0; i < reportArray.length; i++){
 				for (int j = 0; j < reportArray[0].length; j++){
@@ -142,9 +158,11 @@ public class WeekReport extends Report {
 				weekReport += "\n";
 			}
 
-			return weekReport;
+			
 		}
-		return null;
+		//return null;
+            }
+            return weekReport;
         }
 
 }

@@ -14,6 +14,7 @@ public class Weekday {
 	public static final HashMap<Integer, Day> intToEnumMap = new HashMap<Integer, Day>();
 	public static final HashMap<Day, Integer> enumToIntMap = new HashMap<Day, Integer>();
 	public static final HashMap<Day, String> longNameMap = new HashMap<Day, String>();
+        public static final int daysInAWeek = 7;
 	
 	// make handy hashmaps  
 	static {

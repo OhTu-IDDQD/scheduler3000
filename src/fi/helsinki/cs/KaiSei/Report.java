@@ -18,7 +18,7 @@ abstract class Report {
 		this.options = options;
 	}
 
-        public static enum ReportType { DAY, WEEK, FULL }
+        public static enum ReportType { WEEK } //, DAY, FULL }
         
         abstract public String toCSV();
 	abstract public String toString();

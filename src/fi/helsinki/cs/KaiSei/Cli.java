@@ -124,7 +124,7 @@ public class Cli {
 			return false;
 		}
 		// check if specified date is in the schedule
-		return schedule.getSchedule().containsKey(Weekday.intToEnumMap.get(Integer.parseInt(in)));
+		return true; // schedule.getSchedule().containsKey(Weekday.intToEnumMap.get(Integer.parseInt(in)));
 	}
 
 	private static HashMap<String, Object> getOptions(String key, Day value) {
@@ -143,9 +143,11 @@ public class Cli {
 		String startTime = null, endTime = null, location = null, title = null, eventDayTemp;
 		Event event = null;
 		Day eventDay = null;
+                Character choice;
+                ArrayList<Integer> weeks = new ArrayList<Integer>();
 
 		do {
-			System.out.println("");
+			//System.out.println("");
 
 			System.out.println("Which day is the event?");
 			printDates();
@@ -187,27 +189,92 @@ public class Cli {
 
 				eventDay = Weekday.intToEnumMap.get(Integer.parseInt(eventDayTemp));
 				event = new Event(startTime, endTime, title, location);
-				break; // success, get out of the do-while
+				//break; // success, get out of the do-while
 
 			} catch (IllegalArgumentException e) {
 
 				System.out.println("Sorry, but some mistakes were made:");
 				System.out.println(e.getMessage());
+                                continue;
 
 			}
+
+                        System.out.println("Is the event happening every week "
+                                             + "or just some specific weeks?");
+                        System.out.println("[E]very week");
+                        System.out.println("[C]hoose weeks");
+                        printPrompt();
+
+                        choice = sanitize(input.nextLine());
+
+                        
+
+                        if (choice == 'e') {
+                                break;
+                        } else if (choice == 'c') {
+                                while (true) {
+                                        int week;
+                                        System.out.println("Give the weeks one "
+                                                + "by one. The amount of "
+                                                + "weeks in the schedule is "
+                                                + schedule.getSchedule().size());
+                                        System.out.println("End with \""
+                                                + endCommand + "\"");
+                                        printPrompt();
+                                        String userInput = input.nextLine();
+                                        if (userInput.equals(endCommand))
+                                            break;
+                                        try {
+                                                week = Integer.parseInt(userInput.trim());
+                                        } catch (NumberFormatException e) {
+                                                System.out.println("Please enter a positive integer");
+                                                continue;
+                                        }
+                                        if (week < 1) {
+                                            System.out.println("Please enter a positive number");
+                                            continue;
+                                        }
+                                        if (schedule.getSchedule().size() < week) {
+                                            System.out.println("There is no such week in the schedule");
+                                            continue;
+                                        }
+                                        if (weeks.contains(week)) {
+                                            continue;
+                                        }
+
+                                        weeks.add(week);
+                                }
+                        }
+
+                        break;
+
 		} while (true);
+
+                
+
 
 		System.out.print("Adding event to schedule...");
 
-		try {
-			schedule.addEvent(eventDay, event);
-		} catch (IllegalArgumentException e) {
-			System.out.println("Something went wrong:");
-			System.out.println(e.getMessage());
-			System.out.println("Sorry, but once more");
-			newEventDialog();
-			return; // this is for when newEventDialog finally succeedes, we don't print out the last ok!'s
-		}
+                try {
+
+                    if (choice == 'e')
+                            schedule.addEvent(eventDay, event);
+                    else if (choice == 'c') {
+                        if (weeks.isEmpty()) {
+                            System.out.println("No weeks given");
+                            return;
+                        }
+                            schedule.addEvent(eventDay, event, weeks);
+                    }
+                } catch (IllegalArgumentException e) {
+                            System.out.println("Something went wrong:");
+                            System.out.println(e.getMessage());
+                            System.out.println("Sorry, but once more");
+                            newEventDialog();
+                            return; // this is for when newEventDialog finally succeedes, we don't print out the last ok!'s
+                    }
+
+
 
 		System.out.println("ok!");
 
@@ -242,8 +309,52 @@ public class Cli {
 
 	private static void newScheduleDialog() {
 		String in = null;
-		HashSet<Integer> dates = new HashSet<Integer>();
+                int noOfWeeks;
                 
+                System.out.println();
+		System.out.println("Enter the period this schedule is for:");
+		printPrompt();
+		String period = input.nextLine();
+
+                System.out.println();
+		System.out.println("Give the amount of weeks this schedule is for");
+//		System.out.println("Stop giving the dates by entering \""+endCommand+"\"");
+
+		do {
+			printPrompt();
+			in = input.nextLine().trim();
+
+/*			if (in.toLowerCase().equals(endCommand)){
+				break;
+			}
+			else {
+*/                                try {
+                                        noOfWeeks = Integer.parseInt(in);
+                                } catch (NumberFormatException e) {
+                                        System.out.println("Please enter a positive integer");
+                                        continue;
+                                }
+                                if (noOfWeeks < 1) {
+                                        System.out.println("Please enter a positive amount of weeks");
+                                        continue;
+                                }
+//			}
+                        break;
+
+		} while (true);
+
+		System.out.print("Creating schedule...");
+
+		schedule = new Schedule(noOfWeeks, period);
+
+		System.out.println("ok!");
+
+	}
+
+/*	private static void newScheduleDialog() {
+		String in = null;
+		HashSet<Integer> dates = new HashSet<Integer>();
+
                 System.out.println();
 		System.out.println("Enter the period this schedule is for:");
 		printPrompt();
@@ -283,7 +394,7 @@ public class Cli {
 		System.out.println("ok!");
 
 	}
-
+*/
 	private static boolean open(String filename) {
 		
 		objectInput = null; // nullify in case something is wrong and it's open
@@ -372,7 +483,7 @@ public class Cli {
 	}
 
 	private static void printDates(Schedule schedule) {
-		System.out.print("Dates are: ");
+/*		System.out.print("Dates are: ");
 		for (Day d : schedule.getSchedule().keySet()){
 			System.out.print(Weekday.enumToIntMap.get(d));
 			System.out.print(" - ");
@@ -380,7 +491,7 @@ public class Cli {
 			System.out.print(" ");
 		}	
 		System.out.println();
-	}
+*/	}
 
 	private static void printPrompt() {
 		System.out.print("?>");
@@ -454,7 +565,7 @@ public class Cli {
 
 			switch (command) {
 
-			case 'd':
+/*			case 'd':
                                 Report report = dayReport();
                                 if(report == null){
                                     break;
@@ -464,7 +575,7 @@ public class Cli {
 			case 'f':
 				return fullReport();
 
-			case 'w':
+*/			case 'w':
                                 return weekReport();
 
 			case 'n':
