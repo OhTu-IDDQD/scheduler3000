@@ -103,7 +103,7 @@ public class Schedule implements Serializable {
 
         public void addEvent(Day eventDay, Event event, ArrayList<Integer> weeks) {
             for (int week : weeks) {
-                System.out.println("week " + week);
+                System.out.print("week " + week + "...");
                 this.schedule.get(week-1).get(eventDay).add(event);
             }
         }
