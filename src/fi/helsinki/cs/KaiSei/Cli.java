@@ -172,10 +172,16 @@ public class Cli {
                             continue;
                         }
 
-			System.out.println("What this event should be named as?");
-			System.out.println("(just press enter to skip this)");
-			printPrompt();
-			title = input.nextLine();
+                        System.out.println("What this event should be named as?");
+                        while(true) {
+                            printPrompt();
+                            title = input.nextLine();
+                            if(!title.equals("")) {
+                                break;
+                            } else {
+                                System.out.println("The event must have a name! Please type one!");
+                            }
+                        }
 
 			System.out.println("Where this event is held?");
 			System.out.println("(just press enter to skip this)");
